@@ -180,8 +180,6 @@ export class MetadataFormFields extends Component {
   render() {
     const { thesauris, template, multipleEdition, model, showSubset, storeKey } = this.props;
 
-    const isDocumentView = storeKey === 'documentViewer';
-
     const mlThesauri = thesauris
       .filter(thes => !!thes.get('enable_classification'))
       .map(thes => thes.get('_id'))
@@ -234,7 +232,7 @@ export class MetadataFormFields extends Component {
                   </li>
                 ) : null}
                 <li className="wide">
-                  {isDocumentView &&
+                  {storeKey === 'documentViewer' &&
                     ['text', 'date', 'numeric', 'markdown'].includes(property.type) && (
                       <MetadataExtractor
                         fieldName={property.name}
