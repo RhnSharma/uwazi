@@ -237,6 +237,7 @@ export class MetadataFormFields extends Component {
                       <MetadataExtractor
                         fieldName={property.name}
                         fieldId={property._id}
+                        fieldType={property.type}
                         model={`${model}.metadata.${property.name}`}
                       />
                     )}
