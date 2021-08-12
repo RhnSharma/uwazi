@@ -45,7 +45,7 @@ const searchRoutes = (app: Application) => {
     }),
     captureError(async (req: UwaziReq<SearchQuery>, res: UwaziRes) => {
       const { query, language, url } = req;
-      console.log(JSON.stringify(await buildQuery(query, language), null, 2));
+      //      console.log(JSON.stringify(await buildQuery(query, language), null, 2));
       const response = await elastic.search({ body: await buildQuery(query, language) });
       res.json({
         data: mapResults(response.body, query),
